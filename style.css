@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+h1 {
+  color: #333;
+  margin-bottom: 10px;
+}
+
+#plateau {
+  display: grid;
+  grid-template-columns: repeat(10, 40px);
+  grid-template-rows: repeat(10, 40px);
+  gap: 1px;
+  background: #73310b;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* cases */
+.case {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.case-claire {
+  background: #ffb71b;
+}
+.case-foncee {
+  background: #ff6e1a;
+}
+
+/* pions */
+.pion {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #333;
+  transition: transform 0.3s ease;
+}
+.pion-j1 {
+  background: #fff;
+}
+.pion-j2 {
+  background: #333;
+}
+.pion.selected {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+.case-possible {
+  background: rgba(255, 255, 0, 0.5);
+}
+
+/* infos du jeu */
+.info-jeu {
+  margin-top: 20px;
+  text-align: center;
+}
+#new-game {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #00c54b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  &:hover {
+    background: #00a13d;
+  }
+}
+
+/* footer */
+footer {
+  margin-top: 20px;
+  color: #5b5b5b;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: #5b5b5b;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.dame {
+  border: 4px solid #333;
+}
+
+/* Keyframes @nimations */
+@keyframes capture {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.capture {
+  animation: capture 0.5s forwards;
+}
+
+/* responsive */
+@media (max-width: 430px) {
+  body {
+    padding: 10px;
+  }
+
+  #plateau {
+    grid-template-columns: repeat(10, 30px);
+    grid-template-rows: repeat(10, 30px);
+    padding: 5px;
+  }
+
+  .case {
+    width: 30px;
+    height: 30px;
+  }
+
+  .pion {
+    width: 20px;
+    height: 20px;
+  }
+
+  .info-jeu {
+    font-size: 14px;
+  }
+
+  #new-game {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
