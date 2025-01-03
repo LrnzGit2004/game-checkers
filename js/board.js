@@ -1,4 +1,4 @@
-import Piece from "./Piece.js";
+import Piece from "./piece.js";
 
 class Board {
   constructor() {
